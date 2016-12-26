@@ -1,0 +1,25 @@
+﻿
+CREATE TABLE [dbo].[test](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[first] [nvarchar](50) NULL,
+	[second] [nvarchar](50) NULL,
+	[three] [nvarchar](50) NULL,
+	[DeviceId] [nvarchar](50) NULL,
+	[ServerName] [nvarchar](150) NULL,
+	[ServerIP] [nvarchar](50) NULL,
+	[ServerPort] [nvarchar](50) NULL,
+ CONSTRAINT [PK_test] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+CREATE TABLE [dbo].[Sys_Code](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[CodeName] [nvarchar](50) NULL,
+	[CodeValue] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Sys_Code] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
