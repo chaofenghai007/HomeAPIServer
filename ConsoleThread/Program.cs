@@ -37,7 +37,7 @@ namespace ConsoleThread
                     string result = Program.Run(obj);
                     Console.WriteLine("执行任务成功，返回{0}", result);
                     //string strSql=""
-                }, i);
+                },String.Format("{0}_{1}_{2}", i, DeviceId ,Guid.NewGuid()));
             }
             Console.WriteLine("当前时间:{0}我是主线程{1}，你们这些任务都等 2s 执行吧：\n", DateTime.Now, Thread.CurrentThread.ManagedThreadId);
             Thread.Sleep(2000);
@@ -85,6 +85,7 @@ namespace ConsoleThread
             string text3 = streamReader.ReadToEnd();
             streamReader.Close();
             responseStream.Close();
+            InsertResultToDB(first, text3);
             return text3;
         }
 
@@ -136,6 +137,20 @@ namespace ConsoleThread
             }
             result = string.Empty;
             return result;
+        }
+
+        private static void InsertResultToDB(string first, string result)
+        {
+            string Sql = string.Format("insert into test_result values('{0}',{1})", first, int.Parse(result));
+            Console.WriteLine("更新数据SQL：{0}", Sql);
+            try
+            {
+                SqlConnectTest.ExecuteNonQuery(Sql);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

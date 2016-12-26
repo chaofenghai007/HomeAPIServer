@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAPIServer", "HomeAPIServer\HomeAPIServer.csproj", "{2B78000D-4BBB-4CAA-AD2B-8A456307B22F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAPITest", "ConsoleAPITest\ConsoleAPITest.csproj", "{6425F311-5FEC-4D94-895F-A0079E08C320}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleThread", "ConsoleThread\ConsoleThread.csproj", "{F6140EE3-5BE0-4A4F-BDCC-791E4327F89B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIServer", "APIServer\APIServer.csproj", "{518303FD-3DED-4012-B73B-CF8E60887946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalAPI", "LocalAPI\LocalAPI.csproj", "{10EBAE77-9F18-47F6-B912-4D728A6C4A6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B78000D-4BBB-4CAA-AD2B-8A456307B22F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B78000D-4BBB-4CAA-AD2B-8A456307B22F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B78000D-4BBB-4CAA-AD2B-8A456307B22F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B78000D-4BBB-4CAA-AD2B-8A456307B22F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6425F311-5FEC-4D94-895F-A0079E08C320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6425F311-5FEC-4D94-895F-A0079E08C320}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6425F311-5FEC-4D94-895F-A0079E08C320}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,6 +27,10 @@ Global
 		{518303FD-3DED-4012-B73B-CF8E60887946}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518303FD-3DED-4012-B73B-CF8E60887946}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518303FD-3DED-4012-B73B-CF8E60887946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10EBAE77-9F18-47F6-B912-4D728A6C4A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10EBAE77-9F18-47F6-B912-4D728A6C4A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10EBAE77-9F18-47F6-B912-4D728A6C4A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10EBAE77-9F18-47F6-B912-4D728A6C4A6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -39,7 +39,8 @@ namespace APIServer.Controllers
             //    });
             //SqlConnectTest.ExecuteNonQuery(sql);
             //通过API获取返回信息
-            return product.Second;
+            return GetReturnData(product.First);
+          //  return product.Second;
         }
 
         [HttpGet]
@@ -118,6 +119,12 @@ namespace APIServer.Controllers
                 Console.WriteLine("进行队列的异常处理");
                 GlobalClass.ClearQuene(iCount);
             }
+        }
+
+        private string GetReturnData(string id)
+        {
+            var client = new WebClient();
+            return client.DownloadString(string.Format("http://192.168.1.33:8091/api/Values/{0}",id));
         }
     }
 }
