@@ -47,7 +47,7 @@ namespace ConsoleThread
         private static string Run(object obj)
         {
             Program.mrs.Wait();
-            Console.WriteLine("当前时间:{0}任务 {1}已经进入。", DateTime.Now.ToString("HH:mm:ss:fff"), obj);
+            //Console.WriteLine("当前时间:{0}任务 {1}已经进入。", DateTime.Now.ToString("HH:mm:ss:fff"), obj);
             return Program.HttpPost(obj.ToString(), DateTime.Now.ToString("HH:mm:ss:fff"));
         }
 
@@ -69,7 +69,7 @@ namespace ConsoleThread
 			text,
 			Program.DeviceId
 		});
-            Console.WriteLine("执行任务完成:{0}-- {1}已经进入。", text2, text);
+            //Console.WriteLine("执行任务完成:{0}-- {1}已经进入。", text2, text);
             string requestUriString = "http://192.168.1.33:8090/api/MyName/Post";
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString);
             httpWebRequest.Method = "POST";
@@ -85,6 +85,7 @@ namespace ConsoleThread
             string text3 = streamReader.ReadToEnd();
             streamReader.Close();
             responseStream.Close();
+            //存储入库有问题，需要要队列解决
             InsertResultToDB(first, text3);
             return text3;
         }
@@ -141,10 +142,10 @@ namespace ConsoleThread
 
         private static void InsertResultToDB(string first, string result)
         {
-            string Sql = string.Format("insert into test_result values('{0}',{1})", first, int.Parse(result));
-            Console.WriteLine("更新数据SQL：{0}", Sql);
             try
             {
+                string Sql = string.Format("insert into test_result values('{0}',{1})", first, result.Replace("\"",""));
+               // Console.WriteLine("更新数据SQL：{0}", Sql);
                 SqlConnectTest.ExecuteNonQuery(Sql);
             }
             catch (Exception ex)
