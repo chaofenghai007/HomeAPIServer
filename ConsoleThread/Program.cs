@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Net;
@@ -25,6 +26,7 @@ namespace ConsoleThread
             }
             Console.WriteLine("开始测试！--{0}", DateTime.Now.ToString("HH:mm:ss:fff"));
             Program.StartThread();
+
             Console.Read();
         }
         private static void StartThread()
@@ -39,6 +41,8 @@ namespace ConsoleThread
                     //string strSql=""
                 },String.Format("{0}_{1}_{2}", i, DeviceId ,Guid.NewGuid()));
             }
+
+            Task.Factory.StartNew(AddResultToDB);
             Console.WriteLine("当前时间:{0}我是主线程{1}，你们这些任务都等 2s 执行吧：\n", DateTime.Now, Thread.CurrentThread.ManagedThreadId);
             Thread.Sleep(2000);
             Program.mrs.Set();
@@ -86,7 +90,8 @@ namespace ConsoleThread
             streamReader.Close();
             responseStream.Close();
             //存储入库有问题，需要要队列解决
-            InsertResultToDB(first, text3);
+            GlobalClass.AddUserInfo(new Product() { First = first, tresult = text3.Replace("\"", "") });
+          //  InsertResultToDB(first, text3);
             return text3;
         }
 
@@ -138,6 +143,50 @@ namespace ConsoleThread
             }
             result = string.Empty;
             return result;
+        }
+
+        private static void AddResultToDB()
+        {
+
+            while (true)
+            {
+                int count = GlobalClass.GetCount();
+                if (count == 0)
+                {
+                    Thread.Sleep(10);
+                }
+                else
+                {
+                    AddQueueToDB(count);
+                }
+            }
+        }
+
+
+        private static void AddQueueToDB(int iCount)
+        {
+            string text = " INSERT INTO dbo.test_result  ";
+            string text2 = "";
+            List<Product> list = GlobalClass.QueueToList(iCount);
+            foreach (Product current in list)
+            {
+                text2 += string.Format(" Union select '{0}','{1}' ", new object[]
+				{
+					current.First,
+					current.tresult,
+				});
+            }
+            text += text2.Substring(6);
+            try
+            {
+                SqlConnectTest.ExecuteNonQuery(text);
+                GlobalClass.ClearQuene(iCount);
+            }
+            catch (Exception var_4_C9)
+            {
+                Console.WriteLine("进行队列的异常处理");
+                GlobalClass.ClearQuene(iCount);
+            }
         }
 
         private static void InsertResultToDB(string first, string result)
