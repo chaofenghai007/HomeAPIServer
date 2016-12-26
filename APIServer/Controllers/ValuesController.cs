@@ -124,7 +124,7 @@ namespace APIServer.Controllers
         private string GetReturnData(string id)
         {
             var client = new WebClient();
-            return client.DownloadString(string.Format("http://192.168.1.33:8091/api/Values/{0}",id));
+            return client.DownloadString(string.Format("http://localhost:8091/api/Values/{0}", id));
         }
     }
 }
