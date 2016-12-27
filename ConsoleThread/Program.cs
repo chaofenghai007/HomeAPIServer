@@ -18,6 +18,8 @@ namespace ConsoleThread
         static void Main(string[] args)
         {
             int num = 0;
+           // AddResultToDB();
+            Task.Factory.StartNew(AddResultToDB);
             while (!Program.IsStart())
             {
                 Console.WriteLine("{0}:还没有开始运行，等待0.5秒再测试！--{1}", num, DateTime.Now.ToString("HH:mm:ss:fff"));
@@ -42,7 +44,7 @@ namespace ConsoleThread
                 },String.Format("{0}_{1}_{2}", i, DeviceId ,Guid.NewGuid()));
             }
 
-            Task.Factory.StartNew(AddResultToDB);
+           // Task.Factory.StartNew(AddResultToDB);
             Console.WriteLine("当前时间:{0}我是主线程{1}，你们这些任务都等 2s 执行吧：\n", DateTime.Now, Thread.CurrentThread.ManagedThreadId);
             Thread.Sleep(2000);
             Program.mrs.Set();
@@ -74,7 +76,7 @@ namespace ConsoleThread
 			Program.DeviceId
 		});
             //Console.WriteLine("执行任务完成:{0}-- {1}已经进入。", text2, text);
-            string requestUriString = "http://192.168.1.33:8090/api/MyName/Post";
+            string requestUriString = "http://localhost:8090/api/MyName/Post";
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString);
             httpWebRequest.Method = "POST";
             httpWebRequest.ContentType = "application/x-www-form-urlencoded";
@@ -97,7 +99,7 @@ namespace ConsoleThread
 
         private static bool IsStart()
         {
-            string requestUriString = "http://192.168.1.33:8090/api/Values/GetStatus";
+            string requestUriString = "http://localhost:8090/api/Values/GetStatus";
             string text = "";
             try
             {
