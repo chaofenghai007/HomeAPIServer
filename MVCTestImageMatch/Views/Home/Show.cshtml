@@ -1,0 +1,177 @@
+﻿@{
+    ViewBag.Title = "Show";
+    List<Tuple<string, string>> filePaths = ViewBag.Result as List<Tuple<string, string>>;
+    List<Tuple<string, string>> ResultOld = ViewBag.ResultOld as List<Tuple<string, string>>;
+}
+
+<h2>Show</h2>
+<a  href="/Home/Index">重新上传</a>
+<script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="~/Scripts/ToolTip.js"></script>
+
+<img src='@TempData["filePath"]' style="width:100px;" />
+
+<style type="text/css">
+    <!--
+
+    body, div, ul, li {
+        margin: 0 auto;
+        padding: 0;
+    }
+    body {
+        font: 12px "宋体";
+        text-align: center;
+    }
+    a:link {
+        color: #00F;
+        text-decoration: none;
+    }
+    a:visited {
+        color: #00F;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #c00;
+        text-decoration: underline;
+    }
+    ul {
+        list-style: none;
+    }
+    .main {
+        clear: both;
+        padding: 8px;
+        text-align: center;
+        margin-top:20px;
+    }
+    #tabs1 {
+        text-align: left;
+       
+    }
+
+    .menu1box {
+        position: relative;
+        overflow: hidden;
+        height: 22px;
+       
+        text-align: left;
+    }
+
+    #menu1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+        #menu1 li {
+            float: left;
+            display: block;
+            cursor: pointer;
+            width: 72px;
+            text-align: center;
+            line-height: 21px;
+            height: 21px;
+        }
+            #menu1 li.hover {
+                background: #fff;
+                border-left: 1px solid #333;
+                border-top: 1px solid #333;
+                border-right: 1px solid #333;                
+            }
+
+    .main1box {
+        clear: both;
+        margin-top: -1px;
+        border: 1px solid #333;       
+        overflow:hidden;
+    }
+
+    -->
+</style>
+<script type="text/javascript" src="~/Scripts/jquery-1.8.2.js"></script>
+<script>    
+    function setTab(m, n) {
+        var tli1 = $("#menu"+m +" li");
+        var mli1 = $("#main" + m + " div");
+        for (var j = 0; j < tli1.length; j++)
+        {
+            tli1[j].className = j == n ? "hover" : "";
+            mli1[j].style.display = j == n ? "block" : "none";
+        }
+    }
+
+    function setShow(m)
+    {
+        if (m == 1) {
+            $("#div1").show();
+            $("#div2").hide();
+            $("#li2").removeClass("hover");
+            $("#li1").addClass("hover");
+        }
+        else {
+            $("#div2").show();
+            $("#div1").hide();
+            $("#li1").removeClass("hover");
+            $("#li2").addClass("hover");
+        }
+    }
+</script>
+<div>
+    <div id="tabs1">
+        <div class="menu1box">
+            <ul id="menu1">
+                <li class="hover" id="li1" style="margin-left:100px;" onmouseover="setShow(1)"><a href="#">新版图片识别</a></li>
+                <li onmouseover="setShow(2)" style="margin-left:100px;" id="li2"><a href="#">旧版图片识别</a></li>               
+            </ul>
+        </div>
+        <div class="main1box">
+            <div class="main" id="main1">
+                <div id="div1">
+                    @foreach (var tFile in filePaths)
+                    {
+                        int iTmep = tFile.Item1.LastIndexOf("_")-tFile.Item1.IndexOf("_tile_")-6;
+                        string DetailHref="http://www.mystone.cn/HDGallery/Detail/";
+                        if (iTmep > 0)
+                        {
+                            DetailHref = DetailHref + tFile.Item1.Substring(tFile.Item1.IndexOf("_tile_") + 6, iTmep);
+                        }
+                        else
+                        {
+                            DetailHref = "http://www.mystone.cn/HDGallery";
+                        }
+                        <li style="float:left;list-style:none;margin-left:20px;">
+                            <div style="width:200px;height:200px; float:none;text-align:center;">
+                                <a href="@DetailHref" target="_blank">
+                                <img src="@tFile.Item1" class="tooltip" style="height:200px; margin:auto;" onMouseOver="toolTip('<img src=@tFile.Item1>')" onMouseOut="toolTip()"/>
+                                </a>
+                             </div>
+                            <div class="sim" style="text-align:center;"><span>相似度：</span><span>@tFile.Item2</span></div>
+                        </li> 
+                    }                    
+                </div>
+                <div  id="div2">
+                    @foreach (var tFile in ResultOld)
+                    {
+                        int iTmep = tFile.Item1.LastIndexOf("_") - tFile.Item1.IndexOf("_tile_") - 6;
+                        string DetailHref = "http://www.mystone.cn/HDGallery/Detail/";
+                        if (iTmep > 0)
+                        {
+                            DetailHref = DetailHref + tFile.Item1.Substring(tFile.Item1.IndexOf("_tile_") + 6, iTmep);
+                        }
+                        else
+                        {
+                            DetailHref = "http://www.mystone.cn/HDGallery";
+                        }
+                         <li style="float:left;list-style:none;margin-left:20px;">
+                            <div style="width:200px;height:200px; float:none;text-align:center;">
+                                <a href="@DetailHref" target="_blank">
+                                <img src="@tFile.Item1" class="tooltip" style="height:200px; margin:auto;" onMouseOver="toolTip('<img src=@tFile.Item1>')" onMouseOut="toolTip()"/>
+                                    </a>
+                             </div>
+                            <div class="sim" style="text-align:center;"><span>相似度：</span><span>@tFile.Item2</span></div>
+                        </li> 
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

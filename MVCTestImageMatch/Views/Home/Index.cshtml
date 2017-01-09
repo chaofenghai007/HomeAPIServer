@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>Form提交</p>
+<script type="text/javascript">
+    var msg = "@ViewBag.Message";
+    if (msg != null && msg != '')
+        alert(msg);
+</script>
+<form action="/Home/Index" method="POST" enctype="multipart/form-data">
+    <input id="pic" name="pic" type="file" />
+    目录：<select id="seleCatagory" name="seleCatagory">
+        <option value="大理石">大理石</option>
+        <option value="花岗岩">花岗岩</option>
+        <option value="砂岩">砂岩</option>
+        <option value="石灰岩">石灰岩</option>
+        <option value="玄武岩">玄武岩</option>
+        <option value="玉石&半宝石">玉石&半宝石</option>
+        <option value="其他">其他</option>
+    </select>
+    <input type="submit" value="提交" />
+</form>
+

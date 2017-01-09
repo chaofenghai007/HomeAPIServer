@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f0daee1a-d394-4e01-9f23-606e6ad34263" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9999/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Analysis.xsd" MetadataType="Schema" ID="8091e732-08c3-4bbb-b9eb-80d8ad5107a3" SourceId="1" SourceUrl="http://localhost:9999/Analysis.svc?xsd=xsd0" />
+    <MetadataFile FileName="Analysis1.xsd" MetadataType="Schema" ID="e1405334-8b47-41af-9840-be08783fcb9b" SourceId="1" SourceUrl="http://localhost:9999/Analysis.svc?xsd=xsd3" />
+    <MetadataFile FileName="Analysis.disco" MetadataType="Disco" ID="60c2c7f8-fc80-487c-9041-a97e2afcae32" SourceId="1" SourceUrl="http://localhost:9999/Analysis.svc?disco" />
+    <MetadataFile FileName="Analysis2.xsd" MetadataType="Schema" ID="1767e86b-d8a3-424c-9082-de385fcf65be" SourceId="1" SourceUrl="http://localhost:9999/Analysis.svc?xsd=xsd2" />
+    <MetadataFile FileName="Analysis.wsdl" MetadataType="Wsdl" ID="d85d6afc-e78d-4831-9b30-0524c789be34" SourceId="1" SourceUrl="http://localhost:9999/Analysis.svc?wsdl" />
+    <MetadataFile FileName="Analysis3.xsd" MetadataType="Schema" ID="26ef3a33-7476-458d-8bbc-f1ad80579094" SourceId="1" SourceUrl="http://localhost:9999/Analysis.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
