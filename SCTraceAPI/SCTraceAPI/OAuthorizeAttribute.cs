@@ -13,7 +13,7 @@ namespace SCTraceAPI
         protected override bool IsAuthorized(System.Web.Http.Controllers.HttpActionContext actionContext)
         {            
             if (System.Configuration.ConfigurationManager.AppSettings["IsDebug"] != null && System.Configuration.ConfigurationManager.AppSettings["IsDebug"].ToString().ToLower() == "true"
-                && actionContext.Request.Headers.Referrer.AbsoluteUri.ToString().ToLower().Contains("swagger/ui/index"))
+                && actionContext.Request.Headers.Referrer!=null && actionContext.Request.Headers.Referrer.AbsoluteUri.ToString().ToLower().Contains("swagger/ui/index"))
                 return true;
             string sessionid = System.Web.HttpContext.Current.Request.Headers["AspFilterSessionId"];
             if (string.IsNullOrEmpty(sessionid))

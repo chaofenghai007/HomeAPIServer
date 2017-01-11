@@ -19,6 +19,7 @@ namespace ConsoleAPITest
         {
             GetCpuUseing();
             GetMemoryUseing();
+            FetchData(12);
             Console.ReadKey();
             //while (true)
             //{               
@@ -130,7 +131,7 @@ namespace ConsoleAPITest
         static void FetchData(int clientNumber)
         {
             var client = new WebClient();
-            string data = client.DownloadString("http://localhost:18579/api/MyName");
+            string data = client.DownloadString("http://67.228.179.171:12651/(S(yNhMDGmuCNQ))/api/CupTrace/001");
             Console.WriteLine("Client {0} got data: {1}", clientNumber, data);
         }
 
