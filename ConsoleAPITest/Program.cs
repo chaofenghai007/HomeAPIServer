@@ -2,19 +2,59 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic.Devices;
 
 namespace ConsoleAPITest
-{
+{    
     class Program
-    {
+    {      
+        static void Main(string[] args)
+        {
+            GetCpuUseing();
+            GetMemoryUseing();
+            Console.ReadKey();
+            //while (true)
+            //{               
+            //    Console.WriteLine(pcCpuLoad.NextValue());
+            //    System.Threading.Thread.Sleep(1000);
+            //}
+        }
+
+        /// <summary>
+        /// 获取cpu的使用情况
+        /// </summary>
+        static void GetCpuUseing()
+        {
+            PerformanceCounter pcCpuLoad = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            pcCpuLoad.MachineName = ".";
+            pcCpuLoad.NextValue();
+            // Console.WriteLine(pcCpuLoad.NextValue());
+            System.Threading.Thread.Sleep(1000);
+            //必须先将线程停一下，否则计算是100%
+            Console.WriteLine(pcCpuLoad.NextValue());
+        }
+
+        static void GetMemoryUseing()
+        {         
+            ComputerInfo ci = new ComputerInfo();
+               
+            Console.WriteLine("系统物理内存(M):" + ci.TotalPhysicalMemory / 1024 / 1024);
+            Console.WriteLine("系统虚拟内存(M):" + ci.TotalVirtualMemory / 1024 / 1024);
+            Console.WriteLine("可用物理内存(M):" + ci.AvailablePhysicalMemory / 1024 / 1024);
+            Console.WriteLine("可用虚拟内存(M):" + ci.AvailableVirtualMemory / 1024 / 1024);
+            Console.WriteLine("可用物理内存:" + (ci.AvailablePhysicalMemory*100 / ci.TotalPhysicalMemory));
+        }
 
 
         #region 后台post文件测试
+        /*
         static void Main(string[] args)
         {
            // Console.WriteLine(HttpPost());
@@ -44,6 +84,7 @@ namespace ConsoleAPITest
           //  Console.WriteLine(c1.HttpPostFile("http://localhost:2794/Home/PostTest", null, new List<string>() { @"D:\matchImage\1.jpg", @"D:\matchImage\2.jpg" }));
             Console.ReadKey(true);
         }
+        */
         #endregion
 
 
