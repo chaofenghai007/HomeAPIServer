@@ -1,0 +1,115 @@
+﻿<div id="body">
+    <style type="text/css">
+        .context {
+            font-size: 14px;
+            padding: 20px 0 0 170px;
+        }
+
+        table tr td {
+            text-align: center;
+            border: 1px solid;
+        }
+
+        ul > li {
+            float: left;
+        }
+
+        li {
+            list-style-type: none;
+        }
+    </style>
+    <a href="/Home/Index1">跳转到1</a>
+    <div class="context">
+        <p>API测试</p>
+        <p>Test:</p>
+        <p>@Model</p>
+        <table style="width: 90%">
+            <tr>
+                <td style="width: 10%">Url:</td>
+                <td>
+                    <input type="text" id="txtUrl" style="width: 90%" /></td>
+            </tr>
+            <tr>
+                <td style="width: 10%">Params:</td>
+                <td>
+                    <ul>
+                        <li>Name:<input type="text" name="txtName" /></li>
+                        <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                        <li>Value:<input type="text" name="txtValue" /></li>
+                    </ul>
+                    <input type="button" value="+" onclick="return addParams();" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" onclick="return search();" value="PostSearch" /><br />
+                    <input type="button" onclick="return getsearch();" value="GetSearch" /><br />
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10%">Data:</td>
+                <td>
+                    <div id="txtData" style="height: 100%"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+
+        function addParams() {
+            var r = new Date().getTime().toString();
+            $("<ul id='ul_" + r + "'>" +
+                "<li>Name:<input type='text' name='txtName' /></li>" +
+                "<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>" +
+                "<li>Value:<input type='text' name='txtValue'/></li>" +
+                "<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>" +
+                "<li><input type='button' value='-' onclick='return deleteParam(\"ul_" + r + "\");'></li>" +
+                "</ul>").insertAfter("ul:last");
+        }
+
+        function deleteParam(id) {
+            $("#" + id).remove();
+        }
+
+        function search() {
+            var url = $("#txtUrl").val();
+            var sParams = "{";
+            var paramsLength = $(":input[name='txtName']").length;
+            var names = $(":input[name='txtName']");
+            var values = $(":input[name='txtValue']");
+            if (paramsLength >= 1) {
+                sParams += "\"" + names[0].value + "\":" + "\"" + values[0].value + "\"";
+            }
+            for (var i = 1; i < paramsLength; i++) {
+                sParams += ",\"" + names[i].value + "\":" + "\"" + values[i].value + "\"";
+            }
+            sParams += "}";
+            var params = JSON.parse(sParams);
+            $.post(url, params, function (data) {
+                $("#txtData").html(JSON.stringify(data));
+            });
+        }
+
+        function getsearch() {
+            var url = $("#txtUrl").val();
+            var sParams = "{";
+            var paramsLength = $(":input[name='txtName']").length;
+            var names = $(":input[name='txtName']");
+            var values = $(":input[name='txtValue']");
+            if (paramsLength >= 1) {
+                sParams += "\"" + names[0].value + "\":" + "\"" + values[0].value + "\"";
+            }
+            for (var i = 1; i < paramsLength; i++) {
+                sParams += ",\"" + names[i].value + "\":" + "\"" + values[i].value + "\"";
+            }
+            sParams += "}";
+            var params = JSON.parse(sParams);
+            $.get(url, params, function (data) {
+                $("#txtData").html(JSON.stringify(data));
+            });
+        }
+    </script>
+}
