@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCServicesMonitoring", "SCS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIControlServices", "APIControlServices\APIControlServices.csproj", "{D137ECD0-FADA-4221-92F3-1F1410686F83}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{4F4C6B2E-7913-4AF9-8CB1-9A957AC61F8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{784C2CC6-43A5-4D9B-8466-3A1FD2A6148E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,5 +75,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D137ECD0-FADA-4221-92F3-1F1410686F83} = {4F4C6B2E-7913-4AF9-8CB1-9A957AC61F8D}
+		{518303FD-3DED-4012-B73B-CF8E60887946} = {4F4C6B2E-7913-4AF9-8CB1-9A957AC61F8D}
+		{15211ACC-8CFD-4B21-84A9-0285DF8655AB} = {4F4C6B2E-7913-4AF9-8CB1-9A957AC61F8D}
+		{A57E2B6D-1D2A-4D9C-8967-09FB19479821} = {784C2CC6-43A5-4D9B-8466-3A1FD2A6148E}
 	EndGlobalSection
 EndGlobal

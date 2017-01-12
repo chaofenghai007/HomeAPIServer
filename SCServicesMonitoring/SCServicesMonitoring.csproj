@@ -61,14 +61,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Garlic.Common">
-      <HintPath>..\..\Garliclib\Garlic.Common.dll</HintPath>
+      <HintPath>..\Garliclib\Garlic.Common.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <HintPath>..\..\Garliclib\log4net.dll</HintPath>
+      <HintPath>..\Garliclib\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Garliclib\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\Garliclib\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
