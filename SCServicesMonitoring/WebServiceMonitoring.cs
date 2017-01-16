@@ -73,7 +73,7 @@ namespace SCServicesMonitoring
                          log.Error(string.Format("{0}-主站的cpu使用率达到了{1}", uuid, webCpuUseing));
                      }
                      else
-                         log.Info(string.Format("{0}-检查了一次cpu", uuid));
+                         log.Info(string.Format("{0}-检查了一次cpu,主站的cpu使用率达为{1}", uuid, webCpuUseing));
                  }
              }
              catch (Exception ex)
@@ -125,7 +125,7 @@ namespace SCServicesMonitoring
                         log.Error(string.Format("{0}-主站的内存不足，只剩下了{1}%", uuid, webCpuUseing));
                     }
                     else
-                        log.Info(string.Format("{0}-检查了一次内存", uuid));
+                        log.Info(string.Format("{0}-检查了一次内存,剩余内存为{1}%", uuid, webCpuUseing));
                 }
             }
             catch (Exception ex)
