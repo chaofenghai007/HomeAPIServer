@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerTest", "SwaggerTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSwaggerTest", "ConsoleSwaggerTest\ConsoleSwaggerTest.csproj", "{A3D38E2F-829F-46DF-BF39-5DE3CA7EF292}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSwagger", "TestSwagger\TestSwagger.csproj", "{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +100,10 @@ Global
 		{A3D38E2F-829F-46DF-BF39-5DE3CA7EF292}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3D38E2F-829F-46DF-BF39-5DE3CA7EF292}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3D38E2F-829F-46DF-BF39-5DE3CA7EF292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,5 +115,6 @@ Global
 		{891BC8B7-CD60-44E8-8DEE-F681D6C645A3} = {4F4C6B2E-7913-4AF9-8CB1-9A957AC61F8D}
 		{A57E2B6D-1D2A-4D9C-8967-09FB19479821} = {784C2CC6-43A5-4D9B-8466-3A1FD2A6148E}
 		{A3D38E2F-829F-46DF-BF39-5DE3CA7EF292} = {525DAC7C-BBB8-412C-B92B-400801ACD5DC}
+		{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7} = {525DAC7C-BBB8-412C-B92B-400801ACD5DC}
 	EndGlobalSection
 EndGlobal
