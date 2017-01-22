@@ -1,0 +1,10 @@
+﻿1）安装swashbuckle
+Install-Package Swashbuckle -Version 5.2.2
+2)安装打包
+Install-Package AutoRest -Version 0.12.0
+用vs命名行进入autoRest对应的文件夹，进行编译(红色部分为对应的swagger的网络地址)
+AutoRest.exe -CodeGenerator CSharp -Modeler Swagger -Input http://localhost:20583/swagger/docs/v1 -Namespace UserServiceClient
+生成成功后将把所有的api打包到Generated文件夹
+3)创建测试用例，将Generated里面的文件拷贝到对应的项目，添加客户端引用
+Install-Package Microsoft.Rest.ClientRuntime -Version 1.8.1
+4）测试

@@ -13,7 +13,14 @@ namespace ConsoleFileReName
         protected static string flodPath = System.Configuration.ConfigurationManager.AppSettings["flodPath"].ToString();
         static void Main(string[] args)
         {
-            ChangeFileName(new DirectoryInfo(flodPath));
+            string fileName = Path.GetFileName("http://stoneapipic.bstone.com/Pictures/荒料和板材/其他/巴玉 (巴基斯坦)_tile_6_1b.jpg");
+            Console.WriteLine(fileName);
+            var tlist=fileName.Substring(fileName.IndexOf("tile_")).Split('_');
+            if (tlist.Length > 2)
+            {
+                 Console.WriteLine(tlist[1]);                
+            }
+        //    ChangeFileName(new DirectoryInfo(flodPath));
         }
 
         /// <summary>
@@ -31,6 +38,7 @@ namespace ConsoleFileReName
          
             foreach (FileInfo fi in allFile)
             {
+             
                 if (!fi.Name.StartsWith("sc-") && fi.Name.ToLower().Contains("tile"))
                     MyComputer.FileSystem.RenameFile(fi.FullName, "sc-" + fi.Name);
             }
