@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f80b4c29-8440-4d48-b499-d572ac302bdb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://120.25.155.118:8848/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Analysis.xsd" MetadataType="Schema" ID="d7b4d0d2-d670-4bfa-bd8d-3b7f96636890" SourceId="1" SourceUrl="http://120.25.155.118:8848/Analysis.svc?xsd=xsd3" />
+    <MetadataFile FileName="Analysis1.xsd" MetadataType="Schema" ID="c5702f70-1c9b-46fd-b2bc-dc599da41aa5" SourceId="1" SourceUrl="http://120.25.155.118:8848/Analysis.svc?xsd=xsd1" />
+    <MetadataFile FileName="Analysis.wsdl" MetadataType="Wsdl" ID="2bbccc27-38c2-4ce3-989e-64bf2f29ed2e" SourceId="1" SourceUrl="http://120.25.155.118:8848/Analysis.svc?wsdl" />
+    <MetadataFile FileName="Analysis2.xsd" MetadataType="Schema" ID="e21226de-c8d6-4372-be67-07aa9a3bf04b" SourceId="1" SourceUrl="http://120.25.155.118:8848/Analysis.svc?xsd=xsd2" />
+    <MetadataFile FileName="Analysis3.xsd" MetadataType="Schema" ID="1b6f8dd2-e334-44a7-ae4f-cf2d42a5c686" SourceId="1" SourceUrl="http://120.25.155.118:8848/Analysis.svc?xsd=xsd0" />
+    <MetadataFile FileName="Analysis.disco" MetadataType="Disco" ID="f6f4128d-41ca-42c0-bf02-bbfd4b1a2e89" SourceId="1" SourceUrl="http://120.25.155.118:8848/Analysis.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
