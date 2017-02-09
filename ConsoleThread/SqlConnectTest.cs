@@ -19,7 +19,7 @@ namespace ConsoleThread
         static SqlConnectTest()
         {
             SqlConnectTest.con = new SqlConnection("Data Source=127.0.0.1;Database=HBOOK;User Id=sa;Password=sa;Integrated Security=false; Application name=lakeMember;Pooling=true;Max Pool Size=40000;Min Pool Size=0;");
-            //SqlConnectTest.con = new SqlConnection("Data Source=192.168.1.66;Database=test;User Id=sa;Password=stone#$%2013;Integrated Security=false; Application name=lakeMember;Pooling=true;Max Pool Size=40000;Min Pool Size=0;");
+            //SqlConnectTest.con = new SqlConnection("Data Source=192.168.1.66;Database=test;User Id=lake;Password=lake;Integrated Security=false; Application name=lakeMember;Pooling=true;Max Pool Size=40000;Min Pool Size=0;");
             SqlConnectTest.com = new SqlCommand();
             SqlConnectTest.com.Connection = SqlConnectTest.con;
         }
