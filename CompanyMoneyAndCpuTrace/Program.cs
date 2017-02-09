@@ -21,7 +21,7 @@ namespace CompanyMoneyAndCpuTrace
             InitTimer();
             Thread thread = new Thread(new ThreadStart(WriteConcurrent));
             thread.Start();
-            while (1 > 0)
+            while (true)
             {
                 string strInput = Console.ReadLine();
                 if (!string.IsNullOrEmpty(strInput) && strInput.ToLower() == "exit")
@@ -117,15 +117,9 @@ namespace CompanyMoneyAndCpuTrace
 
         #region 队列数据写入
 
-        static void NewThreadRun()
-        {           
-               Thread thread = new Thread(new ThreadStart(WriteConcurrent));
-               thread.Start();
-        }
-
         static void WriteConcurrent()
         {
-            while (1 > 0)
+            while (true)
             {
                 int iCount = GlobalClass.GetCount();
                 if (iCount > 0)
@@ -139,7 +133,10 @@ namespace CompanyMoneyAndCpuTrace
                     WriteCsv(contexts);
                     GlobalClass.ClearQuene(iCount);
                 }
-                Thread.Sleep(100);               
+                else
+                {
+                    Thread.Sleep(10);
+                }
             }
         }
 

@@ -46,6 +46,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleImageMatch", "Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyMoneyAndCpuTrace", "CompanyMoneyAndCpuTrace\CompanyMoneyAndCpuTrace.csproj", "{BD861108-7569-45D0-83D2-99F1BFE41B18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleImgMatchThread", "ConsoleImgMatchThread\ConsoleImgMatchThread.csproj", "{BB182FC7-A4A9-4AD4-A80C-E918E23DA0DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +118,10 @@ Global
 		{BD861108-7569-45D0-83D2-99F1BFE41B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD861108-7569-45D0-83D2-99F1BFE41B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD861108-7569-45D0-83D2-99F1BFE41B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB182FC7-A4A9-4AD4-A80C-E918E23DA0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB182FC7-A4A9-4AD4-A80C-E918E23DA0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB182FC7-A4A9-4AD4-A80C-E918E23DA0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB182FC7-A4A9-4AD4-A80C-E918E23DA0DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,5 +136,6 @@ Global
 		{6CE316F6-FEC1-479A-BE00-9C4D8F210AF7} = {525DAC7C-BBB8-412C-B92B-400801ACD5DC}
 		{E54FE2FB-34FE-4FD8-8881-DB18987C82FF} = {525DAC7C-BBB8-412C-B92B-400801ACD5DC}
 		{BD861108-7569-45D0-83D2-99F1BFE41B18} = {525DAC7C-BBB8-412C-B92B-400801ACD5DC}
+		{BB182FC7-A4A9-4AD4-A80C-E918E23DA0DD} = {525DAC7C-BBB8-412C-B92B-400801ACD5DC}
 	EndGlobalSection
 EndGlobal

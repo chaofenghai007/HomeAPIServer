@@ -13,14 +13,40 @@ namespace ConsoleFileReName
         protected static string flodPath = System.Configuration.ConfigurationManager.AppSettings["flodPath"].ToString();
         static void Main(string[] args)
         {
-            string fileName = Path.GetFileName("http://stoneapipic.bstone.com/Pictures/荒料和板材/其他/巴玉 (巴基斯坦)_tile_6_1b.jpg");
-            Console.WriteLine(fileName);
-            var tlist=fileName.Substring(fileName.IndexOf("tile_")).Split('_');
-            if (tlist.Length > 2)
-            {
-                 Console.WriteLine(tlist[1]);                
-            }
+            //string fileName = Path.GetFileName("http://stoneapipic.bstone.com/Pictures/荒料和板材/其他/巴玉 (巴基斯坦)_tile_6_1b.jpg");
+            //Console.WriteLine(fileName);
+            //var tlist=fileName.Substring(fileName.IndexOf("tile_")).Split('_');
+            //if (tlist.Length > 2)
+            //{
+            //     Console.WriteLine(tlist[1]);                
+            //}
         //    ChangeFileName(new DirectoryInfo(flodPath));
+            ChangeFileNameNoWhere(new DirectoryInfo(System.Configuration.ConfigurationManager.AppSettings["flodPath"].ToString()));
+        }
+
+
+
+
+        /// <summary>
+        /// 修改文件名
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <param name="isOPic"></param>
+        /// <param name="picType"></param>
+        static void ChangeFileNameNoWhere(DirectoryInfo dir)//搜索文件夹中的文件
+        {
+
+            List<string> fileNamelist = new List<string>();
+            FileInfo[] allFile = dir.GetFiles();
+            Computer MyComputer = new Computer();
+            int iStart = int.Parse(System.Configuration.ConfigurationManager.AppSettings["iStarName"].ToString());
+            foreach (var file in allFile)
+            {
+                if (Path.GetExtension(file.FullName).ToLower() == ".jpg")
+                {
+                    MyComputer.FileSystem.RenameFile(file.FullName, (iStart++).ToString()+".jpg");
+                }
+            }
         }
 
         /// <summary>
