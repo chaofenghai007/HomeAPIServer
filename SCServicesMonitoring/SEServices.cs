@@ -41,6 +41,8 @@ namespace SCServicesMonitoring
             SO.CheckServices();
             WebServiceMonitoring mainWeb = new WebServiceMonitoring();
             mainWeb.CheckMainWebServices();
+            PicMatchServiceMonitoring match = new PicMatchServiceMonitoring();
+            match.TestMarch();
         }
     }
 }
